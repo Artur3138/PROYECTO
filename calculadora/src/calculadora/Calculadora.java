@@ -18,6 +18,7 @@ public class Calculadora {
 
         Scanner sc = new Scanner(System.in);
         suma calc = new suma();
+        
          int opcion;
          System.out.println("\nMENU");
          System.out.println("1. Sumar 2 enteros");
@@ -28,39 +29,52 @@ public class Calculadora {
         System.out.print("Elige una opcion: ");
       
         opcion = sc.nextInt();
-        if (opcion ==1)
-        {
-          System.out.print("Ingrese primer entero: ");
-           int a = sc.nextInt();
-           System.out.print("Ingrese segundo entero: ");
-           int b = sc.nextInt();
-            System.out.println("Resultado: " + calc.sumar(a, b));
-            System.out.println();
-            main(args);
+        
+        try {
+            if (opcion == 1) {
+                System.out.print("Ingrese primer entero: ");
+                int a = sc.nextInt();
+
+                System.out.print("Ingrese segundo entero: ");
+                int b = sc.nextInt();
+
+                System.out.println("Resultado: " + calc.sumar(a, b));
+                System.out.println();
+                main(args);
+
+            } else if (opcion == 2) {
+                System.out.print("Ingrese primer entero: ");
+                int x = sc.nextInt();
+
+                System.out.print("Ingrese segundo entero: ");
+                int y = sc.nextInt();
+
+                System.out.print("Ingrese tercer entero: ");
+                int z = sc.nextInt();
+
+                System.out.println("Resultado: " + calc.sumar(x, y, z));
+                System.out.println();
+                main(args);
+
+            } else if (opcion == 3) {
+                System.out.print("Ingrese primer numero decimal: ");
+                double d1 = sc.nextDouble();
+
+                System.out.print("Ingrese segundo numero decimal: ");
+                double d2 = sc.nextDouble();
+
+                System.out.println("Resultado: " + calc.sumar(d1, d2));
+
+            } else {
+                System.out.println("Programa finalizado");
+            }
+
+        } catch (Exception e) {
+            if (opcion == 1 || opcion == 2) {
+                System.out.println("solo se permiten numeros enteros");
+            } else if (opcion == 3) {
+                System.out.println("solo se permiten numeros decimales");
+            }
         }
-        else if ( opcion==2){
-             System.out.print("Ingrese primer entero: ");
-             int x = sc.nextInt();
-             System.out.print("Ingrese segundo entero: ");
-             int y = sc.nextInt();
-             System.out.print("Ingrese tercer entero: ");
-             int z = sc.nextInt();
-             System.out.println("Resultado: " + calc.sumar(x, y, z));
-            System.out.println();
-            main(args);
-        }
-       else if (opcion == 3)
-        {
-            System.out.print("Ingrese primer numero decimal: ");
-            double d1 = sc.nextDouble();
-            System.out.print("Ingrese segundo numero decimal: ");
-            double d2 = sc.nextDouble();
-            System.out.println("Resultado: " + calc.sumar(d1, d2));
-        }
-       
-        else {
-            System.out.println("Programa finalizado");
-        }
-       
-        }
+    }
 }
